@@ -22,7 +22,7 @@
 				<label><input type="radio" name="propriedade" value="media" />Média</label>
 				<label><input type="radio" name="propriedade" value="alta" />Alta</label>
 			</fieldset>
-			<label>Tarefa Concluída: <input type="checkbox" name="Concluída" value="sim" /></label>
+			<label>Tarefa concluída: <input type="checkbox" name="concluida" value="sim" /></label>
 			<input type="submit" name="Cadastrar"/>
 		</fieldset>
 	</form>
@@ -30,10 +30,18 @@
 	<table>
 		<tr>
 			<th>Tarefas</th>
+			<th>Descrição</th>
+			<th>Prazo</th>
+			<th>Prioridade</th>
+			<th>Concluído</th>
 		</tr>
 		<?php foreach ($lista_tarefas as $tarefa) : ?>
 			<tr>
-				<td><?php echo $tarefa ?></td>
+				<td><?php echo $tarefa['nome']; ?></td>
+				<td><?php echo $tarefa['descricao']; ?></td>
+				<td><?php echo $tarefa['prazo']; ?></td>
+				<td><?php echo $tarefa['prioridade']; ?></td>
+				<td><?php echo $tarefa['concluida']; ?></td>
 			</tr>
 		<?php endforeach; ?>
 	</table>
