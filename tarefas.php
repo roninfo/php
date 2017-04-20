@@ -2,6 +2,7 @@
 
 	session_start();
 	include "banco.php";
+	include "helpers.php";
 
 	if(isset($_GET['nome']) && $_GET['nome'] != '') {
 		$tarefas = array();
