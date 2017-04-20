@@ -40,10 +40,48 @@
 				<td><?php echo $tarefa['nome']; ?></td>
 				<td><?php echo $tarefa['descricao']; ?></td>
 				<td><?php echo $tarefa['prazo']; ?></td>
-				<td><?php echo $tarefa['prioridade']; ?></td>
-				<td><?php echo $tarefa['concluida']; ?></td>
+				<td><?php prioridade($tarefa['prioridade']); ?></td>
+				<td><?php concluido2($tarefa['concluida']); ?></td>
 			</tr>
 		<?php endforeach; ?>
+
+		<?php 
+			function prioridade($prioridade) {
+				switch ($prioridade) {
+					case 1:
+						echo "Baixa";
+						break;
+					
+					case 2:
+						echo "Média";
+						break;
+
+					case 3:
+						echo "Alta";
+						break;
+
+					default:
+						echo "---";
+						break;
+				}
+			}
+
+				function concluido2($concluido) {
+					switch ($concluido) {
+						case 1:
+							echo "sim";
+							break;
+						case 2:
+							echo "não";
+							break;
+
+						default:
+							echo "---";
+							break;
+					}
+				}
+			
+		?>
 	</table>
 
 </body>
