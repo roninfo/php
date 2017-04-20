@@ -18,11 +18,11 @@
 			<label> Prazo: <input type="text" name="prazo" /></label>
 			<fieldset>
 				<legend>Prioridade:</legend>
-				<label><input type="radio" name="prioridade" value="baixa" checked />Baixa</label>
-				<label><input type="radio" name="prioridade" value="media" />Média</label>
-				<label><input type="radio" name="prioridade" value="alta" />Alta</label>
+				<label><input type="radio" name="prioridade" value="1" checked />Baixa</label>
+				<label><input type="radio" name="prioridade" value="2" />Média</label>
+				<label><input type="radio" name="prioridade" value="3" />Alta</label>
 			</fieldset>
-			<label>Tarefa concluída: <input type="checkbox" name="concluida" value="sim" /></label>
+			<label>Tarefa concluída: <input type="checkbox" name="concluida" value="1" /></label>
 			<input type="submit" name="Cadastrar"/>
 		</fieldset>
 	</form>

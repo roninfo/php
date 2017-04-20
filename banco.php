@@ -1,8 +1,8 @@
 <?php
 
 $dbServidor = '127.0.0.1';
-$dbUsuario = 'sistematarefa';
-$dbSenha = 'sistema';
+$dbUsuario = 'roninfo';
+$dbSenha = 'roninfo';
 $dbBanco = 'tarefas';
 
 $conexao = mysqli_connect($dbServidor, $dbUsuario, $dbSenha, $dbBanco);

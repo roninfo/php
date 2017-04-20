@@ -1,6 +1,7 @@
 <?php 
 
 	session_start();
+	include "banco.php";
 
 	if(isset($_GET['nome']) && $_GET['nome'] != '') {
 		$tarefas = array();
@@ -23,19 +24,34 @@
 		if (isset($_GET['concluida']) && $_GET['concluida'] != '') {
 			$tarefas['concluida'] = $_GET['concluida'];
 		} else {
-			$tarefas['concluida'] = 'não';
+			$tarefas['concluida'] = '0';
 		}
 
+		gravar_tarefa($conexao, $tarefas);
 	}
-	
-	$_SESSION['lista_tarefas'][] = $tarefas;
-	
 
-	if (isset($_SESSION['lista_tarefas'])) {
-		$lista_tarefas = $_SESSION['lista_tarefas'];
-	} else {
-		$lista_tarefas = array();
+	function gravar_tarefa($conexao, $tarefas) {
+		$query = "INSERT INTO tarefas (nome, descricao, prioridade, concluida) values ('{$tarefas['nome']}','{$tarefas['descricao']}',{$tarefas['prioridade']},{$tarefas['concluida']})";
+
+		echo($query);
+
+		mysqli_query($conexao, $query);
 	}
+	
+	function buscar_tarefas($conexao) {
+		$sqlBusca = 'SELECT * FROM tarefas';
+		$resultado = mysqli_query($conexao, $sqlBusca);
+
+		$tarefas = array();
+
+		while ($tarefa = mysqli_fetch_assoc($resultado)) {
+			$tarefas[] = $tarefa;
+		}
+
+		return $tarefas;
+	}
+
+	$lista_tarefas = buscar_tarefas($conexao);
 
 	include "template.php";
 ?>
