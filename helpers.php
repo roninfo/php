@@ -29,7 +29,7 @@
 			case 1:
 				$retorno = "sim";
 				break;
-			case 2:
+			case 0:
 				$retorno = "não";
 				break;
 
@@ -39,6 +39,16 @@
 		}
 
 		return $retorno;
+	}
+
+	function convertData($data) {
+		$dataMySql = '';
+
+		$aux = explode("-", $data);
+
+		$dataMySql = "{$aux[2]}-{$aux[1]}-{$aux[0]}";
+
+		return $dataMySql;
 	}
 	
 ?>

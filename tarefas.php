@@ -32,9 +32,13 @@
 	}
 
 	function gravar_tarefa($conexao, $tarefas) {
-		$query = "INSERT INTO tarefas (nome, descricao, prioridade, concluida) values ('{$tarefas['nome']}','{$tarefas['descricao']}',{$tarefas['prioridade']},{$tarefas['concluida']})";
 
-		echo($query);
+		$query = "INSERT INTO tarefas (nome, descricao, prioridade, prazo, concluida) values (
+		'{$tarefas['nome']}',
+		'{$tarefas['descricao']}',
+		{$tarefas['prioridade']},
+		'{$tarefas['prazo']}',
+		{$tarefas['concluida']})";
 
 		mysqli_query($conexao, $query);
 	}

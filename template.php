@@ -15,7 +15,7 @@
 			<label>Tarefa: <input type="text" name="nome" /></label>
 
 			<label> Descrição: <textarea name="descricao"> </textarea></label>
-			<label> Prazo: <input type="text" name="prazo" /></label>
+			<label> Prazo: <input type="date" name="prazo" /></label>
 			<fieldset>
 				<legend>Prioridade:</legend>
 				<label><input type="radio" name="prioridade" value="1" checked />Baixa</label>
@@ -39,7 +39,7 @@
 			<tr>
 				<td><?php echo $tarefa['nome']; ?></td>
 				<td><?php echo $tarefa['descricao']; ?></td>
-				<td><?php echo $tarefa['prazo']; ?></td>
+				<td><?php echo convertData($tarefa['prazo']); ?></td>
 				<td><?php echo prioridade($tarefa['prioridade']); ?></td>
 				<td><?php echo concluido($tarefa['concluida']); ?></td>
 			</tr>
