@@ -4,6 +4,8 @@
 	include "banco.php";
 	include "helpers.php";
 
+	$exibir_tabela = true;
+
 	if(isset($_GET['nome']) && $_GET['nome'] != '') {
 		$tarefas = array();
 		$tarefas['nome'] = $_GET['nome'];
@@ -57,6 +59,13 @@
 	}
 
 	$lista_tarefas = buscar_tarefas($conexao);
+
+	function excluir($id) {
+		echo "excluindo registro " . $id;
+		$query = 'delete from tarefas where id = {$id}';
+		mysqli_query($query);
+		echo "excluido registro " . $id;
+	}
 
 	include "template.php";
 ?>

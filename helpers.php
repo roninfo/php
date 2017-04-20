@@ -46,7 +46,7 @@
 
 		$aux = explode("-", $data);
 
-		$dataMySql = "{$aux[2]}-{$aux[1]}-{$aux[0]}";
+		$dataMySql = "{$aux[2]}/{$aux[1]}/{$aux[0]}";
 
 		return $dataMySql;
 	}
