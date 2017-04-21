@@ -6,30 +6,30 @@
 
 	$exibir_tabela = false;
 	$disabled = isset($_GET['disabled']) ? $_GET['disabled'] : '';
-	$editarOuExcluir = isset($_GET['Cadastrar']) ? $_GET['Cadastrar'] : '';
+	$editarOuExcluir = isset($_POST['Cadastrar']) ? $_POST['Cadastrar'] : '';
 
-	if($editarOuExcluir == 'editar' && isset($_GET['nome']) && $_GET['nome'] != '') {
+	if($editarOuExcluir == 'editar') {
 		$tarefas = array();
 
 		$tarefas['id'] = $_GET['id'];
-		$tarefas['nome'] = $_GET['nome'];
+		$tarefas['nome'] = $_POST['nome'];
 
-		if (isset($_GET['descricao'])) {
-			$tarefas['descricao'] = $_GET['descricao'];
+		if (isset($_POST['descricao'])) {
+			$tarefas['descricao'] = $_POST['descricao'];
 		} else {
 			$tarefas['descricao'] = '';
 		}
 
-		if (isset($_GET['prazo'])) {
-			$tarefas['prazo'] = $_GET['prazo'];
+		if (isset($_POST['prazo'])) {
+			$tarefas['prazo'] = $_POST['prazo'];
 		} else {
 			$tarefas['prazo'] = '';
 		}
 
-		$tarefas['prioridade'] = $_GET['prioridade'];
+		$tarefas['prioridade'] = $_POST['prioridade'];
 
-		if (isset($_GET['concluida']) && $_GET['concluida'] != '') {
-			$tarefas['concluida'] = $_GET['concluida'];
+		if (isset($_POST['concluida']) && $_POST['concluida'] != '') {
+			$tarefas['concluida'] = $_POST['concluida'];
 		} else {
 			$tarefas['concluida'] = '0';
 		}

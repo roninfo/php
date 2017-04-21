@@ -68,4 +68,23 @@
 
 		return $dataMySql;
 	}
+
+	function tem_post() {
+		return (count($_POST) > 0) ? true : false; 
+	}
+
+	function validarData($data) {
+		$regex = "/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/";
+		$resultado = preg_match($regex, $data);
+
+		if (!$resultado) {
+			return false;
+		}
+
+		$dados = explode('-', $data);
+
+		$resultdo = checkdate($dados[1], $dados[2], $dados[0]);
+
+		return $resultado;
+	}
 ?>

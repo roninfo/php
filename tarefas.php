@@ -15,26 +15,26 @@
 		'concluida' => ''
 		);
 
-	if(isset($_GET['nome']) && $_GET['nome'] != '') {
+	if(tem_post()) {
 		$tarefas = array();
-		$tarefas['nome'] = $_GET['nome'];
+		$tarefas['nome'] = $_POST['nome'];
 
-		if (isset($_GET['descricao'])) {
-			$tarefas['descricao'] = $_GET['descricao'];
+		if (isset($_POST['descricao'])) {
+			$tarefas['descricao'] = $_POST['descricao'];
 		} else {
 			$tarefas['descricao'] = '';
 		}
 
-		if (isset($_GET['prazo'])) {
-			$tarefas['prazo'] = $_GET['prazo'];
+		if (isset($_POST['prazo'])) {
+			$tarefas['prazo'] = $_POST['prazo'];
 		} else {
 			$tarefas['prazo'] = '';
 		}
 
-		$tarefas['prioridade'] = $_GET['prioridade'];
+		$tarefas['prioridade'] = $_POST['prioridade'];
 
-		if (isset($_GET['concluida']) && $_GET['concluida'] != '') {
-			$tarefas['concluida'] = $_GET['concluida'];
+		if (isset($_POST['concluida']) && $_POST['concluida'] != '') {
+			$tarefas['concluida'] = $_POST['concluida'];
 		} else {
 			$tarefas['concluida'] = '0';
 		}

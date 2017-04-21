@@ -1,11 +1,11 @@
-<form>
+<form method="POST">
 	<input type="hidden" name="id" value="<?php echo $tarefas['id']; ?>"/>
 	<fieldset>
 		<legend>
 			Nova tarefa
 		</legend>
 		<label>Tarefa: 
-			<input type="text" name="nome" required="Nome Obrigatório"
+			<input type="text" name="nome" required
 				<?php echo ($disabled) ? 'disabled' : '';?> 
 				value="<?php echo $tarefas['nome']; ?>" /></label>
 
@@ -20,7 +20,7 @@
 
 		<fieldset>
 			<legend>Prioridade:</legend>
-			<label><input type="radio" name="prioridade" value="1" 
+			<label><input type="radio" name="prioridade" value="1"
 				<?php echo $disabled ? 'disabled' : '';?>
 				<?php echo ($tarefas['prioridade'] == 1) ? 'checked' : ''; ?> />Baixa</label>
 			<label><input type="radio" name="prioridade" value="2" 
@@ -34,7 +34,7 @@
 			<?php echo $disabled ? 'disabled' : '';?>
 			<?php echo ($tarefas['concluida'] == 1) ? 'checked' : ''; ?>/></label>
 		
-		<input type="submit" name="Cadastrar" value="<?php if ($disabled) : ?><?php echo 'excluir'; ?><?php else : ?><?php echo ($tarefas['id'] > 0) ? 'atualizar' : 'cadastrar'; ?><?php endif; ?>"/>
+		<input type="submit" name="Cadastrar" value="<?php if ($disabled) : ?><?php echo 'excluir'; ?><?php else : ?><?php echo ($tarefas['id'] > 0) ? 'editar' : 'cadastrar'; ?><?php endif; ?>"/>
 
 		<?php if (isset($_GET['id']) && $_GET['id'] > 0) : ?>
 			<input type="button" name="voltar" value="voltar" 
