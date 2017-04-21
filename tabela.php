@@ -14,7 +14,10 @@
 			<td><?php echo convertData($tarefa['prazo']); ?></td>
 			<td><?php echo prioridade($tarefa['prioridade']); ?></td>
 			<td><?php echo concluido($tarefa['concluida']); ?></td>
-			<td><a href="editar.php?id=<?php echo $tarefa['id']; ?>">editar</a></td>
+			<td>
+				<a href="editar.php?id=<?php echo $tarefa['id']; ?>">editar</a>
+				<a href="editar.php?disabled=true&id=<?php echo $tarefa['id']; ?>">excluir</a>
+			</td>
 		</tr>
 	<?php endforeach; ?>
 

@@ -42,6 +42,10 @@
 	}
 
 	function convertData($data) {
+		if (!isset($data)) {
+			return '---';
+		}
+
 		$dataMySql = '';
 
 		$aux = explode("-", $data);
@@ -51,4 +55,17 @@
 		return $dataMySql;
 	}
 	
+	function convertDataToAmericano($data) {
+		if (!isset($data)) {
+			return '';
+		}
+
+		$dataMySql = '';
+
+		$aux = explode("/", $data);
+
+		$dataMySql = "{$aux[2]}-{$aux[1]}-{$aux[0]}";
+
+		return $dataMySql;
+	}
 ?>

@@ -5,6 +5,15 @@
 	include "helpers.php";
 
 	$exibir_tabela = true;
+	$disabled = false;
+	$tarefas = array(
+		'id' => 0,
+		'nome' => '',
+		'descricao' => '',
+		'prazo' => '',
+		'prioridade' => 1,
+		'concluida' => ''
+		);
 
 	if(isset($_GET['nome']) && $_GET['nome'] != '') {
 		$tarefas = array();
@@ -31,6 +40,9 @@
 		}
 
 		gravar_tarefa($conexao, $tarefas);
+
+		header('Location: tarefas.php');
+		die();
 	}
 
 	function gravar_tarefa($conexao, $tarefas) {
